@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base</title>
+</head>
+<body>
+<nav class="nav fl">
+    <ul id="fix-list" class="fix-list clearfix">
+        <li id="menu-item-24086" class="menu-item"><a href="/">首页</a></li>
+        {% for category in allcategory %}
+        <li id="menu-item-117720" class="menu-item">
+            <a href="{% url 'index' %}list-{{ category.id }}.html">{{ category.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+</body>
+</html>
