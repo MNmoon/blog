@@ -7,13 +7,16 @@
 <body>
 <nav class="nav fl">
     <ul id="fix-list" class="fix-list clearfix">
-        <li id="menu-item-24086" class="menu-item"><a href="/">首页</a></li>
-        {% for category in allcategory %}
-        <li id="menu-item-117720" class="menu-item">
-            <a href="{% url 'index' %}list-{{ category.id }}.html">{{ category.name }}</a>
-        </li>
-        {% endfor %}
+        <li><a href="/">首页</a></li>
+        <li><a href="/list-1.html">First Day</a></li>
+        <li><a href="/list-2.html">Second Day</a></li>
+        <li><a href="/list-3.html">The Third Day</a></li>
     </ul>
 </nav>
+{% for category in allcategory %}
+<li id="menu-item-117720" class="menu-item">
+ <a href="{% url 'index' %}list-{{ category.id }}.html">{{ category.name }}</a>
+ </li>
+{% endfor %}
 </body>
 </html>

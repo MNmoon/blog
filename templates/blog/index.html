@@ -5,29 +5,17 @@
     <title>Index</title>
 </head>
 <body>
-<!--
-<h3>网站名：{{ sitename }}</h3>
-<h3>域名：{{ url }}</h3>
-{#新下面的代码#}
-<div>
-    <ul>
-    <h4>Blog教程目录：</h4>
-        {% for list in list  %}
-        <li>{{ list }}</li>
-        {% endfor %}
-    </ul>
-</div>
--->
+
 <div>
     <ul>
     <h4>所有文章：</h4>
-        {% for article in allarticle  %}
-        <li>{{ article.title }}</li>
-        <li>{{ article.category }}</li>
-        <li>{{ article.body }}</li>
-        <li>{{ article.user }}</li>
-        <li>{{ article.created_time }}</li>
-        <li>{{ article.modified_time }}</li>
+     {% for article in allarticle  %}
+        <li><a href="{% url 'index' %}show-{{ article.id }}.html" title="{{ article.title }}"> {{ article.title }}</li> </a>
+            {{ article.category.id }}<br />
+            {{ article.body|truncatechars:"10" }}<br />
+            {{ article.user }}<br />
+            {{ article.created_time|date:"Y年m月d日" }}<br />
+            {{ article.modified_time|date:"Y年m月d日" }}
         {% endfor %}
     </ul>
 </div>

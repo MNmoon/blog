@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><a href="{% url 'index' %}">首页</a> »<span class="current">{{ cname }} </span></div>
+<h4 class="post-left-title">分类：{{ cname}}</h4>
+{% for list in list %}
+            <div >
+            <a href="{% url 'index' %}show-{{ list.id }}.html" title="{{ list.title }}"></a>
+            </div>
+
+        <div >
+            <h2>
+                <a href="{% url 'index' %}show-{{ list.id }}.html" target="_blank" title="{{ list.title }}">{{ list.title }}</a>
+            </h2>
+            <div >
+                <span >
+                    <a href="{% url 'index' %}list-{{ list.category_id }}.html">{{ list.category.name }}</a>
+                </span>
+                <time ><i ></i>{{ list.created_time|date:"Y年m月d日" }}</time>
+            </div>
+{% endfor %}
+
+
+
+
+您的位置： <a itemprop="breadcrumb" href="/">首页</a> »
+<span class="current">Python</span></div>
+修改为：
+<a itemprop="breadcrumb" href="{% url 'index' %}">首页</a> »
+<span class="current">{{ cname }} </span></div>
+
+</body>
+</html>

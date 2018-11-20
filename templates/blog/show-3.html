@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{show.title}}</title>
+</head>
+<body>
+    <div>
+        您的位置： <a href="{% url 'index' %}">首页</a> » <a href="{% url 'index' %}list-{{ show.category.id }}.html">{{ show.category.name }}</a> »
+        <span class="current">正文</span>
+    </div>
+    <h1 >{{ show.title }}</h1>
+    <span class="item">分类：<a href="{% url 'index' %}list-{{ show.category.id }}.html" rel="category tag">{{ show.category.name }}</a></span>
+    <span class="item">作者：{{ show.user }}</span>
+    <span class="item">浏览：{{ show.views }}</span>
+    <span class="item">{{ show.created_time }}</span>
+    <article class="article-content">
+        {{ show.body|safe }}
+    </article>
+    <div>
+            <div>
+                <b>上一篇：</b>
+                {% if netx_blog %}
+                    <a href="show-{{ netx_blog.pk }}.html" class="article-tag">{{ netx_blog }}</a>
+                {% else %}
+                    没有了
+                {% endif %}
+            </div>
+            <div>
+                <b>下一篇：</b>
+                {% if previous_blog %}
+                    <a href="show-{{ previous_blog.pk }}.html" class="article-tag">{{ previous_blog }}</a>
+                {% else %}
+                    没有了
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

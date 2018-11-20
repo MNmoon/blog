@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ueditor/', include('DjangoUeditor.urls')),
     url(r'^', views.index, name='index'),
-    url(r'^list-\d\d', views.list, name='list'),
+    url(r'^list-\d', views.list, name='list'),
+    url(r'^show-\d', views.show, name='show'),
 ]
